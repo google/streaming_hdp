@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["test.go"],
+    importpath = "streaming_hdp/previews/hdpreviews/test",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["hdpreviews_proxy_test.go"],
+    importpath = "streaming_hdp/previews/hdpreviews/test",
+    library = ":go_default_library",
+    deps = [
+        "//chrome:go_default_library",
+        "//previews/hdpreviews:go_default_library",
+        "//previews/testutil:go_default_library",
+    ],
+)

@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["streaminghdpproxy.go"],
+    importpath = "streaming_hdp/previews/streaminghdpreviews/proxy",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//chrome:go_default_library",
+        "//previews/streaminghdpreviews:go_default_library",
+        "//previews/streaminghdpreviews/stream:go_default_library",
+    ],
+)
+
+go_binary(
+    name = "proxy",
+    importpath = "streaming_hdp/previews/streaminghdpreviews/proxy",
+    library = ":go_default_library",
+    visibility = ["//visibility:public"],
+)
