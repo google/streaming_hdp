@@ -17,6 +17,8 @@
  * Streaming HD Previews via Stream API. The client connects to a SHDP proxy
  * via Stream API and the proxy sends back updates in JSPB format to this
  * client. This client will pass the messages to the DOMUpdater accordingly.
+ *
+ * @suppress {reportUnknownTypes}
  */
 
 // TODO(vaspol): Add proper test for StreamClient.

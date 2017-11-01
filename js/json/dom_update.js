@@ -11,6 +11,13 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+//
+
+/**
+ * @fileoverview This file defines the DOMUpdate object.
+ *
+ * @suppress {reportUnknownTypes}
+ */
 
 goog.module('streaminghdp.js.json.DOMUpdate');
 
@@ -22,7 +29,7 @@ class DOMUpdate {
     /** @const {!Action} */
     this.Action = action;
 
-    /** @cost {!Node} */
+    /** @const {!Node} */
     this.Node = node;
   }
 }

@@ -1,0 +1,31 @@
+load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_binary", "closure_js_library")
+
+closure_js_library(
+    name = "streaming_hdp_lib",
+    srcs = [
+      "client_stub_extern.js",
+      "dom_updater.js",
+      "log.js",
+      "stream_client.js",
+      "streaminghdp.js",
+      ":json_defs",
+    ],
+)
+
+filegroup(
+    name = "json_defs",
+    srcs = glob(["json/*.js"]),
+)
+
+closure_js_binary(
+  name = "streaming_hdp",
+  deps = [
+    ":streaming_hdp_lib",
+  ],
+  entry_points = ["streaminghdp.js.Streaminghdp"],
+  suppress_on_all_sources_in_transitive_closure = ["analyzerChecks"],
+  defs = [
+    "--define='STREAMINGHDP_LOG_VERBOSE=0'",
+    "--define='STREAMINGHDP_DOMUPDATER_DEBUG_DOM=false'",
+  ],
+)
