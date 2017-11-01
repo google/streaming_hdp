@@ -1,1 +1,4 @@
 static/streaming_hdp.js
+
+# Anything Bazel related.
+/bazel-*

@@ -1,0 +1,23 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "connector.go",
+        "instancemanager.go",
+    ],
+    importpath = "streaming_hdp/chrome",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//devtools:go_default_library",
+        "//dom:go_default_library",
+        "@com_github_phayes_freeport//:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["connector_test.go"],
+    importpath = "streaming_hdp/chrome",
+    library = ":go_default_library",
+)

@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["dom.go"],
+    importpath = "streaming_hdp/dom",
+    visibility = ["//visibility:public"],
+    deps = ["//dom/domjson:go_default_library"],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["dom_test.go"],
+    importpath = "streaming_hdp/dom",
+    library = ":go_default_library",
+    deps = ["//dom/domjson:go_default_library"],
+)

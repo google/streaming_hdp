@@ -15,6 +15,8 @@
 /**
  * @fileoverview Implements the library for monitoring updates to the DOM via
  * WebSocket.
+ *
+ * @suppress {reportUnknownTypes}
  */
 
 goog.module('streaminghdp.js.DOMUpdater');
@@ -39,7 +41,7 @@ class DOMUpdater {
   /**
    * Handles DOM updates in the form of DOMUpdates jspb objects.
    *
-   * @param {DOMUpdates} updates The updates to be applied to the DOM.
+   * @param {?DOMUpdates} updates The updates to be applied to the DOM.
    */
   handleUpdates(updates) {
     const updatesList = updates.Updates;
@@ -71,9 +73,9 @@ class DOMUpdater {
   /**
    * Generates a DOM node from the given node information.
    *
-   * @param {JSONNode} node the node to
+   * @param {?JSONNode} node the node to
    * be generated.
-   * @return {Element|Text|Comment} a new node based on the information given in the
+   * @return {?Element|Text|Comment} a new node based on the information given in the
    * node argument.
    * @private
    */
@@ -97,7 +99,7 @@ class DOMUpdater {
         } catch (err) {
           console.log(err);
         }
-      };
+      }
     }
     return newNode;
   }

@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["handlerutils.go"],
+    importpath = "streaming_hdp/previews/handlerutils",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//chrome:go_default_library",
+        "@com_github_phayes_freeport//:go_default_library",
+    ],
+)
